@@ -53,8 +53,12 @@ const MoviesDetails = () => {
 
       <Nav>
         <p>Additional infornation</p>
-        <Link to={'cast'}>Cast</Link>
-        <Link to={'reviews'}>Reviews</Link>
+        <Link to={'cast'} state={{ from: location?.state.from }}>
+          Cast
+        </Link>
+        <Link to={'reviews'} state={{ from: location?.state.from }}>
+          Reviews
+        </Link>
       </Nav>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />

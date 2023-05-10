@@ -7,9 +7,9 @@ import {
   CastImg,
   CastName,
   CastCharacter,
-  CastNoImage,
 } from './Cast.styled';
-
+const defaultImg =
+  'https://www.meme-arsenal.com/memes/9deabcb50a53c324b3a4981528215040.jpg';
 const Cast = () => {
   const { movieId } = useParams();
   const [casts, setCasts] = useState([]);
@@ -26,11 +26,9 @@ const Cast = () => {
             <CastItem key={cast.id}>
               <CastImg
                 src={
-                  cast.profile_path ? (
-                    `https://www.themoviedb.org/t/p/w500/${cast.profile_path}`
-                  ) : (
-                    <CastNoImage />
-                  )
+                  cast.profile_path
+                    ? `https://www.themoviedb.org/t/p/w500/${cast.profile_path}`
+                    : defaultImg
                 }
                 alt={cast.name}
               />

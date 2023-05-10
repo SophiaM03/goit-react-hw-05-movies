@@ -28,10 +28,3 @@ export const CastCharacter = styled.p`
   font-size: 14px;
   margin: 0;
 `;
-
-export const CastNoImage = styled.div`
-  width: 50px;
-  height: 75px;
-  margin-right: 10px;
-  background-color: #e0e0e0;
-`;
