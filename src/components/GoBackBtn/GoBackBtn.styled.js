@@ -8,7 +8,7 @@ export const GoBackButton = styled(Link)`
   border: 1px solid;
   border-radius: 4px;
   margin-bottom: 10px;
-  padding: 5px 5px;
+  padding: 5px 10px;
   width: 150px;
   transition: background-color #0011ff38;
   &:hover,
