@@ -1,11 +1,13 @@
 import React, { Suspense, useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchDetails } from '../../Constants/theMoviedApi';
 import { About, Img, Movies, Nav, Button } from './MovieDetails.styled';
+import { GoBackBtn } from 'components/GoBackBtn/GoBackBtn';
 
 const MoviesDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     fetchDetails(movieId).then(setMovie);
@@ -14,15 +16,16 @@ const MoviesDetails = () => {
   if (!movie) {
     return <div>Loading...</div>;
   }
+
   return (
     <>
-      <Link>
-        <Button type="button"> </Button>
-      </Link>
+      <GoBackBtn path={location?.state?.from ?? '/'}>
+        <Button type="button">Go back</Button>
+      </GoBackBtn>
 
       <Movies>
         <Img
-          src={movie.poster_path`https://www.themoviedb.org/t/p/w500/${movie.poster_path}`}
+          src={`https://www.themoviedb.org/t/p/w500/${movie.poster_path}`}
           alt={movie.title}
           width="250"
         />
@@ -49,6 +52,7 @@ const MoviesDetails = () => {
       </Movies>
 
       <Nav>
+        <p>Additional infornation</p>
         <Link to={'cast'}>Cast</Link>
         <Link to={'reviews'}>Reviews</Link>
       </Nav>

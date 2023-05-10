@@ -3,35 +3,38 @@ import React, { useState, useEffect } from 'react';
 import { fetchQuery } from '../../Constants/theMoviedApi';
 import Search from 'components/Search/Search';
 import { MoviesList } from './Movies.styled';
+import { LinkFilm, MoviesItem, MovieTitle } from '../Home/Home.styled';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query') || '';
+  const searchQuery = searchParams.get('query') || '';
   const location = useLocation();
 
-  const onSubmit = e => {
-    e.preventDefault();
+  const onSubmit = query => {
     setSearchParams({ query });
   };
-
   useEffect(() => {
-    if (!query) {
+    if (!searchQuery) {
       return;
     }
 
-    fetchQuery(query).then(setMovies);
-  }, [query]);
+    fetchQuery(searchQuery).then(setMovies);
+  }, [searchQuery]);
 
   return (
     <div>
-      <Search onSubmit={onSubmit} initialValue={query} />
+      <Search onSubmit={onSubmit} initialValue={searchQuery} />
 
-      <MoviesList
-        movies={movies}
-        location={location}
-        title={query ? `Search results by word "${query}"` : `Enter your query`}
-      />
+      <MoviesList>
+        {movies.map(movie => (
+          <MoviesItem key={movie.id}>
+            <LinkFilm to={`${movie.id}`} state={{ from: location }}>
+              <MovieTitle>{movie.title}</MovieTitle>
+            </LinkFilm>
+          </MoviesItem>
+        ))}
+      </MoviesList>
     </div>
   );
 };

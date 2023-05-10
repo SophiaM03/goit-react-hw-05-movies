@@ -7,7 +7,7 @@ function Search({ onSubmit, initialValue }) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    onSubmit({ query });
+    onSubmit(query);
   };
 
   const handleChange = e => {

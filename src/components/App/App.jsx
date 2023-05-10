@@ -12,7 +12,7 @@ const Error = lazy(() => import('../../pages/Error/Error'));
 
 export const App = () => {
   return (
-    <Suspense>
+    <Suspense fallback={<p>Loading...</p>}>
       <Routes>
         <Route path="/" element={<Header />}>
           <Route index element={<Home />} />

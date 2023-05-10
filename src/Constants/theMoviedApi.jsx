@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { BASE_URL, API_KEY } from '../Constants/api';
 
+axios.defaults.baseURL = BASE_URL;
+
 export const fetchTrending = async () => {
-  const response = await axios.get(`trending/movie/day?api_key=${API_KEY}`);
+  const response = await axios.get(`/trending/movie/day?api_key=${API_KEY}`);
   return response.data.results;
 };
 

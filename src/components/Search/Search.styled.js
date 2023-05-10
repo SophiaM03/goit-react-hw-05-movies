@@ -18,7 +18,7 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  background-color: rgb(106 106 106);
+  background-color: #005fff69;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,6 +32,6 @@ export const Button = styled.button`
   transition: background-color 0.3s ease-in-out;
 
   &:hover {
-    background-color: #555;
+    background-color: #005fffc7;
   }
 `;

@@ -1,13 +1,17 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import { Nav, NaviLink } from './Header.styled';
 
-export const Header = () => {
+const Header = () => {
   return (
     <>
       <Nav>
         <NaviLink to={'/'}>Home</NaviLink>
         <NaviLink to={'/movies'}>Movies</NaviLink>
       </Nav>
+      <Outlet />
     </>
   );
 };
+
+export default Header;

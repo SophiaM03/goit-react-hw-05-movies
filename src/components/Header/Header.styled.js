@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Nav = styled(Nav)`
+export const Nav = styled.nav`
   margin: 20px auto 0;
   text-align: start;
 `;
+
 export const NaviLink = styled(NavLink)`
   display: inline-block;
   padding: 20px 20px;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Button = styled.button`
   min-width: 150px;
   margin: 10px 0;
-  padding: 10px 15px;
+  padding: 5px 5px;
   background-color: transparent;
   border: 2px solid white;
   text-decoration: none;
@@ -18,7 +18,7 @@ export const Button = styled.button`
   color: #fff;
   transition: all 150ms ease-in-out;
   &:hover {
-    background-color: #90cea1;
+    background-color: #0011ff38;
     color: #fff;
     outline: 0;
   }
@@ -46,6 +46,7 @@ export const About = styled.div`
 `;
 
 export const Link = styled(NavLink)`
+  display: block;
   padding: 12px;
   text-decoration: none;
   color: white;
@@ -55,6 +56,7 @@ export const Link = styled(NavLink)`
   }
 `;
 export const Nav = styled.div`
+  display: block;
   padding-bottom: 15px;
   margin-bottom: 20px;
   border-bottom: 1px solid #fff;
