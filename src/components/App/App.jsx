@@ -8,7 +8,6 @@ const MoviesDetails = lazy(() =>
 );
 const Cast = lazy(() => import('../Cast/Cast'));
 const Reviews = lazy(() => import('../Reviews/Revievs'));
-const Error = lazy(() => import('../../pages/Error/Error'));
 
 export const App = () => {
   return (
@@ -21,7 +20,6 @@ export const App = () => {
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
-          <Route path="*" element={<Error />} />
         </Route>
       </Routes>
     </Suspense>
